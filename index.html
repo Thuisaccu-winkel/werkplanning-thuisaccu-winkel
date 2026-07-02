@@ -22,6 +22,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 table{border-collapse:collapse;font-size:11.5px;table-layout:fixed}
 thead th{position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #e0e0db}
 th,td{border-right:1px solid #e8e8e4;border-bottom:1px solid #e8e8e4;padding:0}
+
+/* sticky left columns */
 th.col-drag{width:22px;min-width:22px;position:sticky;left:0;z-index:11;background:#fff}
 th.col-addr{width:160px;min-width:160px;text-align:left;padding:6px 8px 6px 8px;font-weight:600;color:#888;font-size:11px;position:sticky;left:22px;z-index:11;background:#fff;overflow:visible}
 .col-resize-handle{position:absolute;right:-3px;top:0;bottom:0;width:6px;cursor:col-resize;z-index:20;display:flex;align-items:center;justify-content:center;user-select:none}
@@ -29,14 +31,17 @@ th.col-addr{width:160px;min-width:160px;text-align:left;padding:6px 8px 6px 8px;
 .col-resize-handle:hover::after,.col-resize-handle.resizing::after{background:#4A90D9}
 th.col-client{width:120px;min-width:120px;text-align:left;padding:6px 8px;font-weight:600;color:#888;font-size:11px;position:sticky;left:182px;z-index:11;background:#fff;overflow:visible}
 th.col-work{width:200px;min-width:200px;text-align:left;padding:6px 8px;font-weight:600;color:#888;font-size:11px;position:sticky;left:302px;z-index:11;background:#fff;overflow:visible}
+
 td.col-drag{width:22px;min-width:22px;position:sticky;left:0;z-index:8;background:#fff;text-align:center;vertical-align:middle;cursor:grab;color:#ccc;user-select:none;font-size:14px;line-height:1}
 td.col-drag:active{cursor:grabbing}
 td.col-addr{width:160px;min-width:160px;max-width:160px;padding:6px 8px;font-size:12px;vertical-align:middle;color:#1a1a1a;position:sticky;left:22px;z-index:8;background:#fff;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 td.col-client{width:120px;min-width:120px;max-width:120px;padding:5px 8px;font-size:11px;vertical-align:middle;position:sticky;left:182px;z-index:8;background:#fff;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;cursor:pointer}
 td.col-client:hover{background:#f0f6ff !important}
 td.col-work{width:200px;min-width:200px;max-width:200px;padding:5px 8px;font-size:11px;color:#666;vertical-align:middle;position:sticky;left:302px;z-index:8;background:#fff;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+
 tbody tr:hover td.col-drag,tbody tr:hover td.col-addr,tbody tr:hover td.col-work{background:#f8f8f5}
 tbody tr:hover td.col-client{background:#f0f6ff}
+
 th.col-mat{width:80px;min-width:80px;text-align:center;padding:6px 8px;font-weight:600;color:#888;font-size:11px;position:sticky;left:502px;z-index:11;background:#fff}
 th.col-planned{width:80px;min-width:80px;text-align:center;padding:6px 8px;font-weight:600;color:#888;font-size:11px;position:sticky;left:582px;z-index:11;background:#fff}
 th.col-done{width:80px;min-width:80px;text-align:center;padding:6px 8px;font-weight:600;color:#888;font-size:11px;position:sticky;left:662px;z-index:11;background:#fff}
@@ -58,11 +63,16 @@ td.day-cell.we{background:#f5f5f1}
 .cell-inner{width:100%;height:100%;display:flex;flex-direction:column;overflow:hidden}
 .cell-seg{flex:1;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .cell-seg span{font-size:8px;font-weight:700;color:#fff;line-height:1;padding:0 2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+
 tr.highlight td.col-addr,tr.highlight td.col-work,tr.highlight td.col-drag,tr.highlight td.col-client{background:#fff8e1 !important}
 tr.drag-over td{box-shadow:inset 0 -2px 0 #4A90D9}
 tr.dragging{opacity:.35}
+
+/* client name display in cell */
 .client-name{font-weight:500;color:#1a56db;font-size:11px}
 .client-has-contact::after{content:'ℹ';font-size:9px;color:#9ca3af;margin-left:3px;vertical-align:middle}
+
+/* contact popup */
 .contact-popup{position:fixed;z-index:600;background:#fff;border:1px solid #d0d0cc;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.13);padding:16px 18px;min-width:220px;max-width:280px}
 .contact-popup h4{font-size:13px;font-weight:600;margin-bottom:10px;color:#1a1a1a;display:flex;align-items:center;justify-content:space-between}
 .contact-popup h4 button{background:none;border:none;cursor:pointer;font-size:16px;color:#999;line-height:1;padding:0 2px}
@@ -72,6 +82,8 @@ tr.dragging{opacity:.35}
 .contact-row a{color:#1a56db;text-decoration:none}
 .contact-row a:hover{text-decoration:underline}
 .contact-note{font-size:11px;color:#666;margin-top:8px;padding-top:8px;border-top:1px solid #eee;line-height:1.5}
+
+/* modals */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:500;display:flex;align-items:center;justify-content:center}
 .modal{background:#fff;border-radius:12px;padding:22px 24px;width:400px;max-width:95vw;border:1px solid #ccc;box-shadow:0 8px 24px rgba(0,0,0,.15);max-height:90vh;overflow-y:auto}
 .modal h3{font-size:15px;font-weight:600;margin-bottom:14px;color:#1a1a1a}
@@ -219,6 +231,7 @@ async function pushCell(key){
 }
 async function pushPersons(){if(!sbClient)return;try{await sbClient.from('plan_persons').upsert(persons,{onConflict:'id'})}catch(e){}}
 
+/* ── PERSONS BAR ─────────────────────────────────────────── */
 function buildPersonsBar(){
   const bar=document.getElementById('persons-bar');
   bar.innerHTML='<span class="legend-label">Selecteer persoon om in te plannen:</span>';
@@ -235,6 +248,7 @@ function togglePerson(id){
   buildPersonsBar();
 }
 
+/* ── HEADER ──────────────────────────────────────────────── */
 function buildHeader(){
   const thead=document.getElementById('thead');thead.innerHTML='';
   const r1=document.createElement('tr');
@@ -283,6 +297,7 @@ function buildHeader(){
   thead.appendChild(r3);
 }
 
+/* ── CELL RENDER ─────────────────────────────────────────── */
 function renderCell(rowId,date){
   const ps=cells[cellKey(rowId,date)]||[];if(!ps.length)return'';
   const found=ps.map(pid=>persons.find(p=>p.id===pid)).filter(Boolean);
@@ -291,19 +306,26 @@ function renderCell(rowId,date){
   return`<div class="cell-inner">${segs}</div>`;
 }
 
+/* ── BODY ────────────────────────────────────────────────── */
 function buildBody(filter){
   const tbody=document.getElementById('tbody');tbody.innerHTML='';
   const list=filter?rows.filter(r=>r.addr.toLowerCase().includes(filter.toLowerCase())||r.client.toLowerCase().includes(filter.toLowerCase())):[...rows];
   list.forEach(row=>{
     const tr=document.createElement('tr');tr.dataset.id=row.id;
     if(filter)tr.className='highlight';
+
+    /* drag handle */
     const dragTd=document.createElement('td');dragTd.className='col-drag';
     dragTd.innerHTML='&#8942;&#8942;';dragTd.title='Versleep om volgorde te wijzigen';
     dragTd.onmousedown=()=>{tr.draggable=true};dragTd.onmouseup=()=>{tr.draggable=false};
     tr.appendChild(dragTd);
+
+    /* address */
     const addrTd=document.createElement('td');addrTd.className='col-addr';
     addrTd.textContent=row.addr;addrTd.title=row.addr;addrTd.ondblclick=()=>editRow(row.id);
     tr.appendChild(addrTd);
+
+    /* client */
     const clientTd=document.createElement('td');clientTd.className='col-client';
     const hasContact=row.phone||row.email||row.note;
     if(row.client){
@@ -316,36 +338,52 @@ function buildBody(filter){
     clientTd.onclick=e=>{if(row.client&&hasContact)showContactPopup(row.id,e)};
     clientTd.ondblclick=()=>editRow(row.id);
     tr.appendChild(clientTd);
+
+    /* work */
     const workTd=document.createElement('td');workTd.className='col-work';
     workTd.textContent=row.work;workTd.title=row.work;workTd.ondblclick=()=>editRow(row.id);
     tr.appendChild(workTd);
+
+    /* materials ordered */
     const matTd=document.createElement('td');matTd.className='col-mat';
     const cb=document.createElement('input');cb.type='checkbox';cb.className='mat-cb';
     cb.checked=!!row.mat_ordered;cb.title=cb.checked?'Materialen besteld':'Nog niet besteld';
     cb.onchange=()=>{row.mat_ordered=cb.checked;cb.title=cb.checked?'Materialen besteld':'Nog niet besteld';matTd.style.background=cb.checked?'#f0fdf4':'';saveAll();pushRows()};
-    matTd.appendChild(cb);if(row.mat_ordered)matTd.style.background='#f0fdf4';
+    matTd.appendChild(cb);
+    if(row.mat_ordered)matTd.style.background='#f0fdf4';
     tr.appendChild(matTd);
+
+    /* planned with client */
     const plannedTd=document.createElement('td');plannedTd.className='col-planned';
     const cbPlanned=document.createElement('input');cbPlanned.type='checkbox';cbPlanned.className='mat-cb';
     cbPlanned.style.accentColor='#d97706';
     cbPlanned.checked=!!row.planned_client;cbPlanned.title=cbPlanned.checked?'Gepland met opdrachtgever':'Nog niet gepland met opdrachtgever';
     cbPlanned.onchange=()=>{row.planned_client=cbPlanned.checked;cbPlanned.title=cbPlanned.checked?'Gepland met opdrachtgever':'Nog niet gepland';plannedTd.style.background=cbPlanned.checked?'#fffbeb':'';saveAll();pushRows()};
-    plannedTd.appendChild(cbPlanned);if(row.planned_client)plannedTd.style.background='#fffbeb';
+    plannedTd.appendChild(cbPlanned);
+    if(row.planned_client)plannedTd.style.background='#fffbeb';
     tr.appendChild(plannedTd);
+
+    /* job done */
     const doneTd=document.createElement('td');doneTd.className='col-done';
     const cbDone=document.createElement('input');cbDone.type='checkbox';cbDone.className='mat-cb';
     cbDone.style.accentColor='#2563eb';
     cbDone.checked=!!row.job_done;cbDone.title=cbDone.checked?'Klus afgerond':'Nog niet afgerond';
     cbDone.onchange=()=>{row.job_done=cbDone.checked;cbDone.title=cbDone.checked?'Klus afgerond':'Nog niet afgerond';doneTd.style.background=cbDone.checked?'#eff6ff':'';saveAll();pushRows()};
-    doneTd.appendChild(cbDone);if(row.job_done)doneTd.style.background='#eff6ff';
+    doneTd.appendChild(cbDone);
+    if(row.job_done)doneTd.style.background='#eff6ff';
     tr.appendChild(doneTd);
+
+    /* invoiced */
     const invTd=document.createElement('td');invTd.className='col-inv';
     const cbInv=document.createElement('input');cbInv.type='checkbox';cbInv.className='mat-cb';
     cbInv.style.accentColor='#9333ea';
     cbInv.checked=!!row.invoiced;cbInv.title=cbInv.checked?'Gefactureerd':'Nog niet gefactureerd';
     cbInv.onchange=()=>{row.invoiced=cbInv.checked;cbInv.title=cbInv.checked?'Gefactureerd':'Nog niet gefactureerd';invTd.style.background=cbInv.checked?'#faf5ff':'';saveAll();pushRows()};
-    invTd.appendChild(cbInv);if(row.invoiced)invTd.style.background='#faf5ff';
+    invTd.appendChild(cbInv);
+    if(row.invoiced)invTd.style.background='#faf5ff';
     tr.appendChild(invTd);
+
+    /* day cells */
     allDays.forEach(d=>{
       const isWE=d.getDay()===0||d.getDay()===6;
       const td=document.createElement('td');td.className='day-cell'+(isWE?' we':'');
@@ -358,6 +396,8 @@ function buildBody(filter){
       td.oncontextmenu=e=>{e.preventDefault();clearCellPrompt(row.id,d)};
       tr.appendChild(td);
     });
+
+    /* drag events */
     tr.addEventListener('dragstart',function(e){dragSrcId=parseInt(this.dataset.id);this.classList.add('dragging');e.dataTransfer.effectAllowed='move'});
     tr.addEventListener('dragover',function(e){e.preventDefault();document.querySelectorAll('tr.drag-over').forEach(r=>r.classList.remove('drag-over'));this.classList.add('drag-over')});
     tr.addEventListener('dragleave',function(){this.classList.remove('drag-over')});
@@ -373,13 +413,18 @@ function buildBody(filter){
 }
 let dragSrcId=null;
 
+/* ── CONTACT POPUP ───────────────────────────────────────── */
 function showContactPopup(rowId,e){
   closeContactPopup();
   const row=rows.find(r=>r.id===rowId);if(!row)return;
   const popup=document.createElement('div');popup.className='contact-popup';popup.id='contact-popup';
   let html=`<h4>${esc(row.client)}<button onclick="closeContactPopup()" title="Sluiten">×</button></h4>`;
-  if(row.phone) html+=`<div class="contact-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.78 1.18 2 2 0 012.77 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:${esc(row.phone)}">${esc(row.phone)}</a></div>`;
-  if(row.email) html+=`<div class="contact-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><a href="mailto:${esc(row.email)}">${esc(row.email)}</a></div>`;
+  if(row.phone) html+=`<div class="contact-row">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.78 1.18 2 2 0 012.77 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.06 6.06l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    <a href="tel:${esc(row.phone)}">${esc(row.phone)}</a></div>`;
+  if(row.email) html+=`<div class="contact-row">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <a href="mailto:${esc(row.email)}">${esc(row.email)}</a></div>`;
   if(row.note) html+=`<div class="contact-note">${esc(row.note)}</div>`;
   html+=`<div style="margin-top:10px;text-align:right"><button class="mbtn" style="font-size:11px;padding:3px 10px" onclick="editRow(${rowId});closeContactPopup()">Bewerken</button></div>`;
   popup.innerHTML=html;
@@ -398,6 +443,7 @@ function closeContactPopup(){
   document.removeEventListener('click',outsidePopupClick);
 }
 
+/* ── TOOLTIP ────────────────────────────────────────────── */
 function showTooltip(rowId,date,e){
   const ps=cells[cellKey(rowId,date)]||[];if(!ps.length)return;
   const names=ps.map(pid=>(persons.find(p=>p.id===pid)||{name:pid}).name);
@@ -408,19 +454,34 @@ function showTooltip(rowId,date,e){
 }
 function hideTooltip(){document.getElementById('tooltip').style.display='none'}
 
+/* ── CELL TOGGLE ─────────────────────────────────────────── */
+/* ── UNDO STACK ──────────────────────────────────────────── */
 let undoStack=[];
 const UNDO_MAX=50;
-function pushUndo(){undoStack.push(JSON.stringify(cells));if(undoStack.length>UNDO_MAX)undoStack.shift();}
-function doUndo(){if(!undoStack.length)return;cells=JSON.parse(undoStack.pop());saveAll();buildBody(searchTerm);}
-document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='z'){e.preventDefault();doUndo();}});
+function pushUndo(){
+  undoStack.push(JSON.stringify(cells));
+  if(undoStack.length>UNDO_MAX)undoStack.shift();
+}
+function doUndo(){
+  if(!undoStack.length)return;
+  cells=JSON.parse(undoStack.pop());
+  saveAll();buildBody(searchTerm);
+}
+document.addEventListener('keydown',e=>{
+  if((e.ctrlKey||e.metaKey)&&e.key==='z'){e.preventDefault();doUndo();}
+});
 
+/* drag-to-fill state */
 let dragFill={active:false,rowId:null,startDate:null,removing:false};
 
 function toggleCell(rowId,date,td,e){
-  if(!selected.length){showNoPerson();return;}
+  if(!selected.length){
+    showNoPerson();return;
+  }
   const key=cellKey(rowId,date);const cur=cells[key]||[];
-  if(e.shiftKey){cells[key]=cur.filter(p=>!selected.includes(p));}
-  else{
+  if(e.shiftKey){
+    cells[key]=cur.filter(p=>!selected.includes(p));
+  } else {
     const toAdd=selected.filter(p=>!cur.includes(p)),toRm=selected.filter(p=>cur.includes(p));
     if(toAdd.length)cells[key]=[...cur,...toAdd];
     else if(toRm.length)cells[key]=cur.filter(p=>!toRm.includes(p));
@@ -438,8 +499,11 @@ function showNoPerson(){
 
 function startDragFill(rowId,date,td,e){
   if(!selected.length){showNoPerson();return;}
+  const key=cellKey(rowId,date);const cur=cells[key]||[];
+  const wouldAdd=selected.some(p=>!cur.includes(p));
   dragFill={active:true,rowId,startDate:date,removing:false};
-  applyDragFill(rowId,date);e.preventDefault();
+  applyDragFill(rowId,date);
+  e.preventDefault();
 }
 
 function applyDragFill(rowId,endDate){
@@ -474,7 +538,6 @@ function endDragFill(rowId,endDate){
   dragFill={active:false,rowId:null,startDate:null,removing:false};
   buildBody(searchTerm);
 }
-
 function clearCellPrompt(rowId,date){
   if(!(cells[cellKey(rowId,date)]?.length))return;
   showModal(`<h3>Dag wissen</h3>
@@ -484,6 +547,7 @@ function clearCellPrompt(rowId,date){
 }
 function doClearCell(rowId,dk){pushUndo();const key=rowId+'_'+dk;delete cells[key];saveAll();pushCell(key);closeModal();buildBody(searchTerm)}
 
+/* ── ADD / EDIT ROW ─────────────────────────────────────── */
 function showAddRow(){
   showModal(`<h3>Nieuw werkadres toevoegen</h3>
     <label>Adres</label><input type="text" id="n_addr" placeholder="Bijv. Kerkstraat 5, Beverwijk">
@@ -500,7 +564,15 @@ function showAddRow(){
 function doAddRow(){
   const addr=(document.getElementById('n_addr')?.value||'').trim();
   if(!addr)return;
-  rows.push({id:nextId++,addr,work:(document.getElementById('n_work')?.value||'').trim(),client:(document.getElementById('n_client')?.value||'').trim(),phone:(document.getElementById('n_phone')?.value||'').trim(),email:(document.getElementById('n_email')?.value||'').trim(),note:(document.getElementById('n_note')?.value||'').trim(),sort:rows.length});
+  rows.push({
+    id:nextId++,addr,
+    work:(document.getElementById('n_work')?.value||'').trim(),
+    client:(document.getElementById('n_client')?.value||'').trim(),
+    phone:(document.getElementById('n_phone')?.value||'').trim(),
+    email:(document.getElementById('n_email')?.value||'').trim(),
+    note:(document.getElementById('n_note')?.value||'').trim(),
+    sort:rows.length
+  });
   saveAll();pushRows();closeModal();buildBody(searchTerm);
 }
 function editRow(id){
@@ -530,17 +602,33 @@ function doSaveRow(id){
 function doDeleteRow(id){
   rows=rows.filter(r=>r.id!==id);
   Object.keys(cells).filter(k=>k.startsWith(id+'_')).forEach(k=>delete cells[k]);
-  saveAll();pushRows();closeModal();buildBody(searchTerm);
+  saveAll();
+  if(sbClient){
+    sbClient.from('plan_rows').delete().eq('id',id).then(()=>{});
+    Object.keys(cells).filter(k=>k.startsWith(id+'_')).forEach(k=>{
+      sbClient.from('plan_cells').delete().eq('key',k).then(()=>{});
+    });
+  }
+  pushRows();closeModal();buildBody(searchTerm);
 }
 
+/* ── PERSONS MGMT ─────────────────────────────────────────── */
 function showPersonsMgmt(){
   let html='<h3>Personen beheren</h3><p style="font-size:11px;color:#999;margin-bottom:10px">Wijzig namen en kleuren direct.</p>';
   persons.forEach((p,i)=>{
-    html+=`<div class="pmrow"><input type="color" value="${p.color}" id="pc_${i}" title="Kleur"><input type="text" value="${esc(p.name)}" id="pn_${i}" placeholder="Naam"><button style="font-size:11px;padding:3px 7px;cursor:pointer;color:#dc2626;border:1px solid #fca5a5;border-radius:6px;background:transparent;flex-shrink:0" onclick="doDelPerson('${p.id}')">✕</button></div>`;
+    html+=`<div class="pmrow">
+      <input type="color" value="${p.color}" id="pc_${i}" title="Kleur">
+      <input type="text" value="${esc(p.name)}" id="pn_${i}" placeholder="Naam">
+      <button style="font-size:11px;padding:3px 7px;cursor:pointer;color:#dc2626;border:1px solid #fca5a5;border-radius:6px;background:transparent;flex-shrink:0" onclick="doDelPerson('${p.id}')">✕</button>
+    </div>`;
   });
   html+=`<div style="border-top:1px solid #eee;margin:10px 0 8px"></div>
   <p style="font-size:11px;color:#777;margin-bottom:8px">Nieuw persoon toevoegen:</p>
-  <div class="pmrow"><input type="color" id="np_c" value="#0891b2"><input type="text" id="np_n" placeholder="Naam nieuwe persoon"><button style="font-size:11px;padding:3px 9px;cursor:pointer;border:1px solid #ccc;border-radius:6px;background:#f5f5f3;flex-shrink:0" onclick="doAddPerson()">+ Toevoegen</button></div>
+  <div class="pmrow">
+    <input type="color" id="np_c" value="#0891b2">
+    <input type="text" id="np_n" placeholder="Naam nieuwe persoon">
+    <button style="font-size:11px;padding:3px 9px;cursor:pointer;border:1px solid #ccc;border-radius:6px;background:#f5f5f3;flex-shrink:0" onclick="doAddPerson()">+ Toevoegen</button>
+  </div>
   <div class="modal-btns"><button class="mbtn" onclick="closeModal()">Annuleer</button>
   <button class="mbtn primary" onclick="doSavePersons()">Opslaan</button></div>`;
   showModal(html);
@@ -565,6 +653,7 @@ function doSavePersons(){
   saveAll();pushPersons();closeModal();rebuildAll();
 }
 
+/* ── SUPABASE ─────────────────────────────────────────────── */
 function showSupabase(){
   showModal(`<h3>Supabase koppeling</h3>
     <label>Project URL</label><input type="text" id="sb_u" value="${esc(SB_URL)}" placeholder="https://xxxx.supabase.co">
@@ -593,9 +682,13 @@ function saveSBConfig(){
   SB_KEY=(document.getElementById('sb_k')?.value||'').trim();
   localStorage.setItem('sb_url',SB_URL);localStorage.setItem('sb_key',SB_KEY);
   closeModal();initSB();
-  if(SB_URL&&SB_KEY){const b=document.getElementById('setup-banner');if(b)b.style.display='none';}
+  if(SB_URL&&SB_KEY){
+    const b=document.getElementById('setup-banner');
+    if(b)b.style.display='none';
+  }
 }
 
+/* ── SEARCH ───────────────────────────────────────────────── */
 function doSearch(){
   searchTerm=document.getElementById('search-input').value.trim();
   const cnt=rows.filter(r=>r.addr.toLowerCase().includes(searchTerm.toLowerCase())||r.client.toLowerCase().includes(searchTerm.toLowerCase())).length;
@@ -609,6 +702,7 @@ function clearSearch(){
   buildBody('');
 }
 
+/* ── MISC ─────────────────────────────────────────────────── */
 function jumpToday(){
   const weekMonday=getMonday(today);
   const idx=allDays.findIndex(d=>dateKey(d)===dateKey(weekMonday));
@@ -627,12 +721,17 @@ function showModal(html){
 function closeModal(){document.getElementById('modal-overlay')?.remove()}
 function rebuildAll(){buildPersonsBar();buildHeader();buildBody(searchTerm);applyColWidths();initResizeHandle();}
 
+/* ── COLUMN RESIZE ─────────────────────────────────────── */
 let colWidths={addr:parseInt(localStorage.getItem('cw_addr')||'160'),client:parseInt(localStorage.getItem('cw_client')||'120'),work:parseInt(localStorage.getItem('cw_work')||'200')};
 
 function applyColWidths(){
   const aw=colWidths.addr,cw=colWidths.client,ww=colWidths.work;
-  const clientLeft=22+aw,workLeft=clientLeft+cw,matLeft=workLeft+ww;
-  const plannedLeft=matLeft+80,doneLeft=plannedLeft+80,invLeft=doneLeft+80;
+  const clientLeft=22+aw;
+  const workLeft=clientLeft+cw;
+  const matLeft=workLeft+ww;
+  const plannedLeft=matLeft+80;
+  const doneLeft=plannedLeft+80;
+  const invLeft=doneLeft+80;
   document.querySelectorAll('th.col-addr,td.col-addr').forEach(el=>{el.style.width=aw+'px';el.style.minWidth=aw+'px';el.style.maxWidth=aw+'px'});
   document.querySelectorAll('th.col-client,td.col-client').forEach(el=>{el.style.width=cw+'px';el.style.minWidth=cw+'px';el.style.maxWidth=cw+'px';el.style.left=clientLeft+'px'});
   document.querySelectorAll('th.col-work,td.col-work').forEach(el=>{el.style.width=ww+'px';el.style.minWidth=ww+'px';el.style.maxWidth=ww+'px';el.style.left=workLeft+'px'});
@@ -649,7 +748,11 @@ function makeResizable(handleId,colKey,minW,maxW){
     e.preventDefault();e.stopPropagation();
     startX=e.clientX;startW=colWidths[colKey];
     handle.classList.add('resizing');
-    const onMove=e=>{colWidths[colKey]=Math.max(minW,Math.min(maxW,startW+(e.clientX-startX)));localStorage.setItem('cw_'+colKey,colWidths[colKey]);applyColWidths()};
+    const onMove=e=>{
+      colWidths[colKey]=Math.max(minW,Math.min(maxW,startW+(e.clientX-startX)));
+      localStorage.setItem('cw_'+colKey,colWidths[colKey]);
+      applyColWidths();
+    };
     const onUp=()=>{handle.classList.remove('resizing');document.removeEventListener('mousemove',onMove);document.removeEventListener('mouseup',onUp)};
     document.addEventListener('mousemove',onMove);document.addEventListener('mouseup',onUp);
   });
@@ -673,6 +776,7 @@ document.addEventListener('mouseup',()=>{
 initSB();
 rebuildAll();
 
+/* ── REALTIME SYNC ───────────────────────────────────────── */
 function initRealtime(){
   if(!sbClient)return;
   try{
@@ -690,7 +794,10 @@ function initRealtime(){
   }catch(e){setSyncStatus('err')}
 }
 window.addEventListener('load',()=>{
-  if(!SB_URL||!SB_KEY){const b=document.getElementById('setup-banner');if(b)b.style.display='flex';}
+  if(!SB_URL||!SB_KEY){
+    const b=document.getElementById('setup-banner');
+    if(b)b.style.display='flex';
+  }
   setTimeout(()=>{applyColWidths();initResizeHandle();jumpToday();},150);
 });
 </script>
